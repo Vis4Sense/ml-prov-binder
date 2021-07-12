@@ -4,7 +4,7 @@
 
 JupyterLab extension for visual hyperparamter tuning.
 
-:rocket: Try it out on Binder: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/JKU-ICG/jupyterlab_nbprovenance/demo?urlpath=lab)
+:rocket: Try it out on Binder: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Vis4Sense/ml-prov-binder/demo?urlpath=lab)
 
 This extension is composed of a Python package named `ml_prov` for the server extension
 and a NPM package named `ml-prov` for the frontend extension.
