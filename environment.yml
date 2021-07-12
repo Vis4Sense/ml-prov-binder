@@ -1,0 +1,7 @@
+name: ml-prov
+channels:
+  - defaults
+dependencies:
+  - python
+  - jupyterlab>=3
+  - nbclassic>=0.2.8
