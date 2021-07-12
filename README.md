@@ -15,7 +15,7 @@ This extension was created with the [TypeScript cookiecutter](https://github.com
 
 * JupyterLab >= 3.0
 
-You can also use the [environment.yml](https://github.com/Vis4Sense/ml-prov-binder/blob/main/environment.yml) file with conda. The `nbclassic` version is pinned there due to https://github.com/jupyterlab/jupyterlab/issues/10228
+You can also use the [environment.yml](https://github.com/Vis4Sense/ml-prov-binder/blob/demo/environment.yml) file with conda. The `nbclassic` version is pinned there due to https://github.com/jupyterlab/jupyterlab/issues/10228
 
 ## Install
 
