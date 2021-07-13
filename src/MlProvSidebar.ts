@@ -38,7 +38,7 @@ export class MlProvSidebar extends Widget {
   }
 
   protected onBeforeShow(msg: any)  {
-    console.debug(`opening ${TITLE} sidebar`);
+    console.debug(`Opening ${TITLE} sidebar.`);
     
     // add new chart, different random data on every open
     new D3BarChart([
