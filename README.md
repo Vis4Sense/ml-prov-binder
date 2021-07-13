@@ -108,6 +108,6 @@ folder is located. Then you can remove the symlink named `ml-prov` within that f
 1. Make code changes
 2. Update version in package.json
 3. Make sure to `npm login`
-4. Build the extension: `npm run build:prod`
+4. Build the extension: `jlpm run build:prod`
 5. Verify files to be published `npm pack --dry-run`
 6. Publish `npm publish`
