@@ -102,3 +102,12 @@ pip uninstall ml_prov
 In development mode, you will also need to remove the symlink created by `jupyter labextension develop`
 command. To find its location, you can run `jupyter labextension list` to figure out where the `labextensions`
 folder is located. Then you can remove the symlink named `ml-prov` within that folder.
+
+### Publish
+
+1. Make code changes
+2. Update version in package.json
+3. Make sure to `npm login`
+4. Build the extension: `npm run build:prod`
+5. Verify files to be published `npm pack --dry-run`
+6. Publish `npm publish`
