@@ -1,5 +1,5 @@
 {
-  "name": "ml-prov",
+  "name": "@keckelt/ml-prov",
   "version": "0.1.0",
   "description": "JupyterLab extension for visual hyperparamter tuning.",
   "keywords": [
