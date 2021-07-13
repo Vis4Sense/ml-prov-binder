@@ -1,6 +1,6 @@
 # ml_prov
 
-![Github Actions Status](https://github.com/Vis4Sense/ml-prov-binder/workflows/Build/badge.svg)[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Vis4Sense/ml-prov-binder/main?urlpath=lab)
+![Github Actions Status](https://github.com/Vis4Sense/ml-prov-binder/workflows/Build/badge.svg)[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Vis4Sense/ml-prov-binder/demo?urlpath=lab)
 
 JupyterLab extension for visual hyperparamter tuning.
 
@@ -22,10 +22,13 @@ You can also use the [environment.yml](https://github.com/Vis4Sense/ml-prov-bind
 Install [JupyterLab](http://jupyterlab.readthedocs.io/en/latest/getting_started/installation.html) if you haven't already.
 
 To install the extension, execute:
+🟥 not yet available, please refer to the _Development Install_ section below.
 
 ```bash
 pip install ml_prov
 ```
+
+
 
 ## Uninstall
 
