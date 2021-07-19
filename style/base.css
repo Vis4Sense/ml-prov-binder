@@ -6,3 +6,7 @@
 .ml-prov-widget-view .chart {
   margin: 1em 0em;
 }
+
+#radius-value {
+  display: block;
+}

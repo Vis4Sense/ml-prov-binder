@@ -19,3 +19,31 @@ export class D3BarChart {
       .attr('x', 0);
   }
 }
+export class D3Chart1 {
+  value!: string;
+  constructor(parent: HTMLElement) {
+    const svg = select(parent).append('svg')
+       .classed('chart1', true)
+
+    // Show circle with initial radius of 60px
+     const circle = svg.append('circle')
+         .attr('cx', 100)
+         .attr('cy', 100) 
+         .attr('fill', 'none')   
+         .attr('stroke', 'blue') 
+         .attr('r', 30);
+      
+     function update(radius:number) {
+         circle.attr('r', radius);
+     }
+     const circumference = document.getElementById('radius-slider') as HTMLInputElement;
+     // Event slider for input slider
+     select(circumference).on('input', function()  {
+       
+         // Update visualization
+         update(parseInt(this.value));
+         // Update label
+         select('#radius-value').text(this.value);
+     });
+  }
+}
