@@ -19,6 +19,8 @@ export class D3BarChart {
       .attr('x', 0);
   }
 }
+
+
 export class D3Chart1 {
   value!: string;
   constructor(parent: HTMLElement) {
