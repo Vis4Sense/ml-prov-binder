@@ -1,6 +1,6 @@
 # ml_prov
 
-![Github Actions Status](https://github.com/Vis4Sense/ml-prov-binder/workflows/Build/badge.svg)[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Vis4Sense/ml-prov-binder/demo?urlpath=lab)
+![Github Actions Status](https://github.com/Vis4Sense/ml-prov-binder/workflows/Build/badge.svg) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Vis4Sense/ml-prov-binder/demo?urlpath=lab)
 
 JupyterLab extension for visual hyperparamter tuning.
 
