@@ -5,7 +5,7 @@ import { D3Chart1 } from './D3BarChart';
 
 const TITLE = 'ML Prov';
 const DESCRIPTION = 'Visual Hyperparameter Tuning';
-const dataviz = '<div><label for="radius-slider">Radius: <span id="radius-value">30</span></label><input type="range" min="1" value="30" max="50" id="radius-slider"></div>'
+const dataviz = '<div id="dataviz"></div>'
 /**
  * Sidebar widget to interact with the extension.
  * See https://github.com/jupyterlab/extension-examples/tree/master/widgets
@@ -40,9 +40,9 @@ export class MlProvSidebar extends Widget {
 
   protected onBeforeShow(msg: any)  {
     console.debug(`Opening ${TITLE} sidebar.`);
-    
-    //add new chart, different random data on every open
+
     new D3Chart1(this.node);
+    //add new chart, different random data on every open
     new D3BarChart([
        {amount: Math.random()*200},
        {amount: Math.random()*200},

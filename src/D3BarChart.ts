@@ -1,8 +1,8 @@
-import { select } from 'd3-selection';
+import * as d3 from "d3";
 
 export class D3BarChart {
   constructor(data: { amount: number; }[], parent: HTMLElement) {
-    const svg = select(parent).append('svg')
+    const svg = d3.select(parent).append('svg')
       .classed('chart', true)
       .attr('width', 200)
       .attr('height', 50);
@@ -22,30 +22,64 @@ export class D3BarChart {
 
 
 export class D3Chart1 {
-  value!: string;
-  constructor(parent: HTMLElement) {
-    const svg = select(parent).append('svg')
-       .classed('chart1', true)
+  constructor() {
+    const margin = {top: 30, right: 10, bottom: 10, left: 0};
+    const width = 500 - margin.left - margin.right;
+    const height = 400 - margin.top - margin.bottom;
 
-    // Show circle with initial radius of 60px
-     const circle = svg.append('circle')
-         .attr('cx', 100)
-         .attr('cy', 100) 
-         .attr('fill', 'none')   
-         .attr('stroke', 'blue') 
-         .attr('r', 30);
+    var svg = d3.select("#dataviz")
+        .append('svg')
+        .attr('width', width + margin.left + margin.right)
+        .attr('height', height + margin.top + margin.bottom)
+        .append('g')
+        .attr('transform', "translate(" + margin.left + "," + margin.top + ")");
+    
+    d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/iris.csv").then( function(data) {
       
-     function update(radius:number) {
-         circle.attr('r', radius);
-     }
-     const circumference = document.getElementById('radius-slider') as HTMLInputElement;
-     // Event slider for input slider
-     select(circumference).on('input', function()  {
-       
-         // Update visualization
-         update(parseInt(this.value));
-         // Update label
-         select('#radius-value').text(this.value);
-     });
+    const dimensions = Object.keys(data[0]).filter(function(d) { return d != "Species" });
+    const y: Record<number, d3.ScaleLinear<number, number>> = {}
+
+    for (const [key, dimension] of dimensions.entries()) {
+        const scale = d3.scaleLinear().domain(dimension).range([height, 0])
+        y[key] = scale
+    }
+
+      var x = d3.scalePoint()
+        .range([0, width])
+        .padding(1)
+        .domain(dimensions);
+    
+      function path(d:any) {
+          return d3.line()(dimensions.map(function(p) { return [x(p), y[p](d[p])]; }));
+      }
+    
+      // Draw the lines
+      svg
+        .selectAll("myPath")
+        .data(data)
+        .join("path")
+        .attr("d",  path)
+        .style("fill", "none")
+        .style("stroke", "#69b3a2")
+        .style("opacity", 0.5)
+    
+      // Draw the axis:
+      svg.selectAll("myAxis")
+        // For each dimension of the dataset I add a 'g' element:
+        .data(dimensions).enter()
+        .append("g")
+        // I translate this element to its right position on the x axis
+        .attr("transform", function(d) { return "translate(" + x(d) + ")"; })
+        // And I build the axis with the call function
+        .each(function(d) { d3.select(this).call(d3.axisLeft(x).scale(y[d])); })
+        // Add axis title
+        .append("text")
+          .style("text-anchor", "middle")
+          .attr("y", -9)
+          .text(function(d) { return d; })
+          .style("fill", "black")
+    
+    }) 
   }
 }
+
