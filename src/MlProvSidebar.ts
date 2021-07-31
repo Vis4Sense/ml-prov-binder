@@ -1,16 +1,16 @@
 import { Widget } from '@lumino/widgets';
-import { D3BarChart } from './D3BarChart';
 import { offlineBoltIcon } from '@jupyterlab/ui-components';
 // import { D3Chart1 } from './D3BarChart';
+import { scatterGraph } from './D3BarChart';
 
 const TITLE = 'ML Prov';
 const DESCRIPTION = 'HyperParameters:';
 const values = '<li>h1 = 20</li><li>h2 = 10</li>';
-// const dataviz = '<div><label for="radius-slider">Radius: <span id="radius-value">30</span></label><input type="range" min="1" value="30" max="50" id="radius-slider"></div>'
 const hpInput = '<input size="15"> &nbsp; <button style="border-radius: 15px;">Add HP</button>';
 const description2 = 'Performance Metrics:';
 const fScore = '<li>f-score: 0.672</li>';
 const metric = '<input size="15"> &nbsp; <button style="border-radius: 15px;">Add Metric</button>';
+const dataviz = '<div id="my_dataviz"></div>';
 
 /**
  * Sidebar widget to interact with the extension.
@@ -32,7 +32,6 @@ export class MlProvSidebar extends Widget {
     this.title.caption = DESCRIPTION;
     this.title.icon = offlineBoltIcon; //placeholder, see https://github.com/jupyterlab/jupyterlab/tree/master/packages/ui-components for how to add icons
     this.title.closable = true;
-
     this.addStaticDummyContent();
   }
 
@@ -47,6 +46,7 @@ export class MlProvSidebar extends Widget {
       <ul>${fScore}</ul>
       ${metric}
       <div style="margin-bottom: 1cm;"></div>
+      ${dataviz}
     `);
   }
 
@@ -54,16 +54,11 @@ export class MlProvSidebar extends Widget {
     console.debug(`Opening ${TITLE} sidebar.`);
     //add new chart, different random data on every open
     // new D3Chart1(this.node);
-    new D3BarChart([
-       {amount: Math.random()*200},
-       {amount: Math.random()*200},
-       {amount: Math.random()*200}
-     ], this.node);
+    new scatterGraph(this.node);
   }
 
   protected onAfterHide(msg: any)  {
     console.debug(`closing ${TITLE} sidebar`);
-    this.node.querySelector('svg.chart')?.remove();
     this.node.querySelector('svg.chart1')?.remove();
   }
 }
