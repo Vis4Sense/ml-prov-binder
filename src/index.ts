@@ -20,7 +20,7 @@ async function activateMLProv(app: JupyterFrontEnd) {
     });
 
   // create sidebar widget
-  const provWidget = new MlProvSidebar()
+  const provWidget = new MlProvSidebar();
   app.shell.add(provWidget, 'left');
 }
 

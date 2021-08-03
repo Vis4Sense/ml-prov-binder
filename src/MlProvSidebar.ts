@@ -48,18 +48,18 @@ export class MlProvSidebar extends Widget {
     `);
   }
 
-  protected onBeforeShow(msg: any)  {
+  protected onBeforeShow(msg: any) {
     console.debug(`Opening ${TITLE} sidebar.`);
-    
+
     //add new chart, different random data on every open
     new D3BarChart([
-       {amount: Math.random()*200},
-       {amount: Math.random()*200},
-       {amount: Math.random()*200}
-     ], this.node);
+      { amount: Math.random() * 200 },
+      { amount: Math.random() * 200 },
+      { amount: Math.random() * 200 }
+    ], this.node);
   }
 
-  protected onAfterHide(msg: any)  {
+  protected onAfterHide(msg: any) {
     console.debug(`closing ${TITLE} sidebar`);
     this.node.querySelector('svg.chart')?.remove();
     this.node.querySelector('svg.chart1')?.remove();
