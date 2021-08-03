@@ -5,7 +5,7 @@ import {
 import { requestAPI } from './handler';
 import { MlProvSidebar } from './MlProvSidebar';
 
-async function activateMLProv(app: JupyterFrontEnd) {
+async function activateMLProv(app: JupyterFrontEnd): Promise<void> {
   console.log('JupyterLab extension ml-prov is activated!');
 
   // get data from server-side python
