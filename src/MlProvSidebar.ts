@@ -1,12 +1,10 @@
 import { Widget } from '@lumino/widgets';
 import { D3BarChart } from './D3BarChart';
 import { offlineBoltIcon } from '@jupyterlab/ui-components';
-// import { D3Chart1 } from './D3BarChart';
 
 const TITLE = 'ML Prov';
 const DESCRIPTION = 'HyperParameters:';
 const values = '<li>h1 = 20</li><li>h2 = 10</li>';
-// const dataviz = '<div><label for="radius-slider">Radius: <span id="radius-value">30</span></label><input type="range" min="1" value="30" max="50" id="radius-slider"></div>'
 const hpInput = '<input size="15"> &nbsp; <button style="border-radius: 15px;">Add HP</button>';
 const description2 = 'Performance Metrics:';
 const fScore = '<li>f-score: 0.672</li>';
@@ -54,7 +52,6 @@ export class MlProvSidebar extends Widget {
     console.debug(`Opening ${TITLE} sidebar.`);
     
     //add new chart, different random data on every open
-    // new D3Chart1(this.node);
     new D3BarChart([
        {amount: Math.random()*200},
        {amount: Math.random()*200},
