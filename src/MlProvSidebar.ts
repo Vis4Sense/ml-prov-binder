@@ -2,6 +2,10 @@ import { Widget } from '@lumino/widgets';
 import { offlineBoltIcon } from '@jupyterlab/ui-components';
 // import { D3Chart1 } from './D3BarChart';
 import { scatterGraph } from './D3BarChart';
+import { Message } from '@lumino/messaging';
+import { D3BarChart } from './D3BarChart';
+import { offlineBoltIcon } from '@jupyterlab/ui-components';
+
 
 const TITLE = 'ML Prov';
 const DESCRIPTION = 'HyperParameters:';
@@ -12,12 +16,12 @@ const fScore = '<li>f-score: 0.672</li>';
 const metric = '<input size="15"> &nbsp; <button style="border-radius: 15px;">Add Metric</button>';
 const dataviz = '<div id="my_dataviz"></div>';
 
+
 /**
  * Sidebar widget to interact with the extension.
  * See https://github.com/jupyterlab/extension-examples/tree/master/widgets
  */
 export class MlProvSidebar extends Widget {
-
   /**
    * Returns a new table of contents.
    *
@@ -35,8 +39,10 @@ export class MlProvSidebar extends Widget {
     this.addStaticDummyContent();
   }
 
-  addStaticDummyContent() {
-    this.node.insertAdjacentHTML('afterbegin', `
+  addStaticDummyContent(): void {
+    this.node.insertAdjacentHTML(
+      'afterbegin',
+      `
       <h1>${TITLE}</h1>
       <p>${DESCRIPTION}</p>
       <ul>${values}</ul>
@@ -50,17 +56,14 @@ export class MlProvSidebar extends Widget {
     `);
   }
 
-  protected onBeforeShow(msg: any)  {
+  protected onBeforeShow(msg: Message): void {
     console.debug(`Opening ${TITLE} sidebar.`);
-    //add new chart, different random data on every open
     // new D3Chart1(this.node);
     new scatterGraph(this.node);
   }
 
-  protected onAfterHide(msg: any)  {
+  protected onAfterHide(msg: Message): void {
     console.debug(`closing ${TITLE} sidebar`);
     this.node.querySelector('svg.chart1')?.remove();
   }
 }
-
-
