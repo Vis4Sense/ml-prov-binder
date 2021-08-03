@@ -36,7 +36,7 @@ export class MlProvSidebar extends Widget {
     this.addStaticDummyContent();
   }
 
-  addStaticDummyContent() {
+  addStaticDummyContent(): void {
     this.node.insertAdjacentHTML(
       'afterbegin',
       `
@@ -53,7 +53,7 @@ export class MlProvSidebar extends Widget {
     );
   }
 
-  protected onBeforeShow(msg: Message) {
+  protected onBeforeShow(msg: Message): void {
     console.debug(`Opening ${TITLE} sidebar.`);
 
     //add new chart, different random data on every open
@@ -67,7 +67,7 @@ export class MlProvSidebar extends Widget {
     );
   }
 
-  protected onAfterHide(msg: Message) {
+  protected onAfterHide(msg: Message): void {
     console.debug(`closing ${TITLE} sidebar`);
     this.node.querySelector('svg.chart')?.remove();
     this.node.querySelector('svg.chart1')?.remove();
