@@ -55,7 +55,7 @@ jobs:
           jupyter server extension list 2>&1 | grep -ie "ml_prov.*OK"
 
           jupyter labextension list 2>&1 | grep -ie "ml-prov.*OK" 
-          python -m jupyterlab.browser_check || exit 0
+        # skip: python -m jupyterlab.browser_check || exit 0
 
           check-manifest -v
 
