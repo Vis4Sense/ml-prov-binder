@@ -1,6 +1,9 @@
 # ml_prov
 
-![Github Actions Status](https://github.com/Vis4Sense/ml-prov-binder/workflows/Build/badge.svg) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Vis4Sense/ml-prov-binder/demo?urlpath=lab)
+ ![npm (scoped)](https://img.shields.io/npm/v/@keckelt/ml-prov?style=flat)
+![Github Actions Status](https://github.com/Vis4Sense/ml-prov-binder/workflows/Build/badge.svg)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Vis4Sense/ml-prov-binder/demo?urlpath=lab)
 
 JupyterLab extension for visual hyperparamter tuning.
 
@@ -15,7 +18,7 @@ This extension was created with the [TypeScript cookiecutter](https://github.com
 
 * JupyterLab >= 3.0
 
-You can also use the [environment.yml](https://github.com/Vis4Sense/ml-prov-binder/blob/demo/environment.yml) file with conda. The `nbclassic` version is pinned there due to https://github.com/jupyterlab/jupyterlab/issues/10228
+You can also use the [environment.yml](https://github.com/Vis4Sense/ml-prov-binder/blob/demo/environment.yml) file with conda. The `nbclassic` version is pinned there due to [version conflicts](https://github.com/jupyterlab/jupyterlab/issues/10228).
 
 ## Install
 
@@ -27,8 +30,6 @@ To install the extension, execute:
 ```bash
 pip install ml_prov
 ```
-
-
 
 ## Uninstall
 
