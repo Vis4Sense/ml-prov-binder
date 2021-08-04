@@ -31,8 +31,8 @@ export class scatterGraph {
     //Creating x label
     svg
       .append('text')
-      .attr('x', width / 2 + 100)
-      .attr('y', height - 15 + 150)
+      .attr('x', width / 2)
+      .attr('y', height + margin.bottom)
       .attr('text-anchor', 'middle')
       .style('font-family', 'Helvetica')
       .style('font-size', 9)
