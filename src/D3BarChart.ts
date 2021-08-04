@@ -13,17 +13,29 @@ export class scatterGraph {
       [33, 150],
       [100, 15]
     ];
-    const margin = { top: 10, right: 30, bottom: 30, left: 30 };
+
+    // chart size (without axes)
     const width = 150;
     const height = 150;
+
+    const axisLabelXOffset = 5; // gap to bottom svg border
+    const axisLabelYOffset = 15; // gap to left svg border
+
+    // margin contains axes (left/bottom) or blank spcae (top/right)
+    const margin = {
+      // contains axes
+      top: 10,
+      right: 10, //necessary as x-axis labels may be wider than the chart
+      bottom: 30 + axisLabelXOffset,
+      left: 30 + axisLabelYOffset
+    };
 
     const svg = d3
       .select('#my_dataviz')
       .append('svg')
       .classed('chart1', true)
       .attr('width', width + margin.left + margin.right)
-      .attr('height', height + margin.top + margin.bottom)
-      .attr('transform', `translate(${margin.left}, ${margin.top})`);
+      .attr('height', height + margin.top + margin.bottom);
 
     const xScale = d3.scaleLinear().domain([0, 100]).range([0, width]);
     const yScale = d3.scaleLinear().domain([0, 200]).range([height, 0]);
@@ -31,8 +43,8 @@ export class scatterGraph {
     //Creating x label
     svg
       .append('text')
-      .attr('x', width / 2)
-      .attr('y', height + margin.bottom)
+      .attr('x', width / 2 + margin.left) // center in the chart
+      .attr('y', height + margin.bottom + margin.top - axisLabelXOffset)
       .attr('text-anchor', 'middle')
       .style('font-family', 'Helvetica')
       .style('font-size', 9)
@@ -41,20 +53,30 @@ export class scatterGraph {
     //Creating y label
     svg
       .append('text')
-      .attr('text-anchor', 'middle')
-      .attr('transform', 'translate(10,' + height + ')rotate(-90)')
+      .style('text-anchor', 'middle')
+      .attr('transform', 'rotate(-90)')
+      .attr('y', axisLabelYOffset)
+      .attr('x', -(height / 2 + margin.top))
       .style('font-family', 'Helvetica')
       .style('font-size', 9)
       .text('Dependant');
 
-    svg
+    //Plot group, contains axis & marks
+    const plot = svg
+      .append('g')
+      .classed('plot', true)
+      .attr('transform', `translate(${margin.left}, ${margin.top})`);
+
+    //Create axes
+    plot
       .append('g')
       .attr('transform', 'translate(0,' + height + ')')
       .call(d3.axisBottom(xScale));
 
-    svg.append('g').call(d3.axisLeft(yScale));
+    plot.append('g').call(d3.axisLeft(yScale));
 
-    svg
+    // Create scatter plot
+    plot
       .append('g')
       .selectAll('dot')
       .data(dataset1)
