@@ -7,11 +7,11 @@ const TITLE = 'ML Prov';
 const DESCRIPTION = 'HyperParameters:';
 const values = '<li>h1 = 20</li><li>h2 = 10</li>';
 const hpInput =
-  '<input size="15"> &nbsp; <button style="border-radius: 15px;">Add HP</button>';
+  '<input size="15"> &nbsp; <button style="border-radius: 15px;">Add HP</button><div style="margin-bottom: 0.5cm;"></div>';
 const description2 = 'Performance Metrics:';
 const fScore = '<li>f-score: 0.672</li>';
 const metric =
-  '<input size="15"> &nbsp; <button style="border-radius: 15px;">Add Metric</button>';
+  '<input size="15"> &nbsp; <button style="border-radius: 15px;">Add Metric</button><div style="margin-bottom: 1cm;"></div>';
 const dataviz = '<div id="my_dataviz"></div>';
 
 /**
@@ -44,11 +44,9 @@ export class MlProvSidebar extends Widget {
       <p>${DESCRIPTION}</p>
       <ul>${values}</ul>
       ${hpInput}
-      <div style="margin-bottom: 0.5cm;"></div>
       <p>${description2}</p>
       <ul>${fScore}</ul>
       ${metric}
-      <div style="margin-bottom: 1cm;"></div>
       ${dataviz}
     `
     );
