@@ -2,7 +2,7 @@ import * as d3 from 'd3';
 
 export class scatterGraph {
   constructor(parent: HTMLElement) {
-    var dataset1 = [
+    const dataset1 = [
       [90, 20],
       [20, 100],
       [66, 44],
