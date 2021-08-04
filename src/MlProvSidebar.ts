@@ -1,21 +1,18 @@
 import { Widget } from '@lumino/widgets';
 import { offlineBoltIcon } from '@jupyterlab/ui-components';
-// import { D3Chart1 } from './D3BarChart';
 import { scatterGraph } from './D3BarChart';
 import { Message } from '@lumino/messaging';
-import { D3BarChart } from './D3BarChart';
-import { offlineBoltIcon } from '@jupyterlab/ui-components';
-
 
 const TITLE = 'ML Prov';
 const DESCRIPTION = 'HyperParameters:';
 const values = '<li>h1 = 20</li><li>h2 = 10</li>';
-const hpInput = '<input size="15"> &nbsp; <button style="border-radius: 15px;">Add HP</button>';
+const hpInput =
+  '<input size="15"> &nbsp; <button style="border-radius: 15px;">Add HP</button>';
 const description2 = 'Performance Metrics:';
 const fScore = '<li>f-score: 0.672</li>';
-const metric = '<input size="15"> &nbsp; <button style="border-radius: 15px;">Add Metric</button>';
+const metric =
+  '<input size="15"> &nbsp; <button style="border-radius: 15px;">Add Metric</button>';
 const dataviz = '<div id="my_dataviz"></div>';
-
 
 /**
  * Sidebar widget to interact with the extension.
@@ -53,7 +50,8 @@ export class MlProvSidebar extends Widget {
       ${metric}
       <div style="margin-bottom: 1cm;"></div>
       ${dataviz}
-    `);
+    `
+    );
   }
 
   protected onBeforeShow(msg: Message): void {
