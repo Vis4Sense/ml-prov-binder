@@ -82,12 +82,8 @@ export class scatterGraph {
       .data(dataset1)
       .enter()
       .append('circle')
-      .attr('cx', function (d: any) {
-        return xScale(d[0]);
-      })
-      .attr('cy', function (d: any) {
-        return yScale(d[1]);
-      })
+      .attr('cx', d => xScale(d[0]))
+      .attr('cy', d => yScale(d[1]))
       .attr('r', 2)
       .style('fill', '#CC0000');
   }
