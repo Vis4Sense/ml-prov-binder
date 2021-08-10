@@ -54,7 +54,6 @@ export class MlProvSidebar extends Widget {
 
   protected onBeforeShow(msg: Message): void {
     console.debug(`Opening ${TITLE} sidebar.`);
-    // new D3Chart1(this.node);
     new scatterGraph(this.node);
   }
 
