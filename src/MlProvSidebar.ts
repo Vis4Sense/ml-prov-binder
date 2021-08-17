@@ -4,7 +4,7 @@ import { scatterGraph } from './D3BarChart';
 import { Message } from '@lumino/messaging';
 
 function validateRequest() {
-  var mr = new scatterGraph();
+  const mr = new scatterGraph();
   return mr;
 }
 
