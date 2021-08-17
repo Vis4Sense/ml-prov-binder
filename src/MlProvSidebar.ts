@@ -15,10 +15,8 @@ const values = '<li>h1 = 20</li><li>h2 = 10</li>';
 //   '<input size="15">';
 // const description2 = 'Performance Metrics:';
 // const fScore = '<li>f-score: 0.672</li>';
-const metric =
-  `<input size = "15"> &nbsp; <input size = "15"> <button id = "submitButton" onclick= ${validateRequest()} style = "border-radius: 15px;"> Submit </button> <div style = "margin-bottom: 1cm;"></div>`;
+const metric = `<input size = "15"> &nbsp; <input size = "15"> <button id = "submitButton" onclick= ${validateRequest()} style = "border-radius: 15px;"> Submit </button> <div style = "margin-bottom: 1cm;"></div>`;
 const dataviz = '<div id = "my_dataviz"></div>';
-
 
 /**
  * Sidebar widget to interact with the extension.
@@ -41,7 +39,6 @@ export class MlProvSidebar extends Widget {
     this.title.closable = true;
     this.addStaticDummyContent();
   }
-  
 
   addStaticDummyContent(): void {
     this.node.insertAdjacentHTML(

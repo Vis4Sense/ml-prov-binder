@@ -1,7 +1,7 @@
 import * as d3 from 'd3';
-export class scatterGraph {  
+export class scatterGraph {
   constructor() {
-    const dataset1:any = [];
+    const dataset1: any = [];
 
     // chart size (without axes)
     const width = 150;
