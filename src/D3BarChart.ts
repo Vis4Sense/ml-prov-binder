@@ -1,18 +1,7 @@
 import * as d3 from 'd3';
-
-export class scatterGraph {
-  constructor(parent: HTMLElement) {
-    const dataset1 = [
-      [90, 20],
-      [20, 100],
-      [66, 44],
-      [53, 80],
-      [24, 182],
-      [80, 72],
-      [10, 76],
-      [33, 150],
-      [100, 15]
-    ];
+export class scatterGraph {  
+  constructor() {
+    const dataset1:any = [];
 
     // chart size (without axes)
     const width = 150;
@@ -82,8 +71,8 @@ export class scatterGraph {
       .data(dataset1)
       .enter()
       .append('circle')
-      .attr('cx', d => xScale(d[0]))
-      .attr('cy', d => yScale(d[1]))
+      .attr('cx', d => xScale(dataset1))
+      .attr('cy', d => yScale(dataset1))
       .attr('r', 2)
       .style('fill', '#CC0000');
   }
