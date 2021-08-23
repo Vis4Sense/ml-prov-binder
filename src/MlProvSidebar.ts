@@ -54,10 +54,10 @@ export class MlProvSidebar extends Widget {
     const element = document.getElementById(
       'submitButton'
     ) as HTMLButtonElement;
-      element?.addEventListener('click', function () {
-        const updateGraph = new scatterGraph();
-        return updateGraph;
-      });
+    element?.addEventListener('click', function () {
+      const updateGraph = new scatterGraph();
+      return updateGraph;
+    });
   }
 
   protected onAfterHide(msg: Message): void {
