@@ -3,11 +3,6 @@ import { offlineBoltIcon } from '@jupyterlab/ui-components';
 import { scatterGraph } from './D3BarChart';
 import { Message } from '@lumino/messaging';
 
-function validateRequest() {
-  const mr = new scatterGraph();
-  return mr;
-}
-
 const TITLE = 'ML Prov';
 const DESCRIPTION = 'HyperParameters:';
 const values = '<li>h1 = 20</li><li>h2 = 10</li>';
@@ -15,7 +10,8 @@ const values = '<li>h1 = 20</li><li>h2 = 10</li>';
 //   '<input size="15">';
 // const description2 = 'Performance Metrics:';
 // const fScore = '<li>f-score: 0.672</li>';
-const metric = `<input size = "15"> &nbsp; <input size = "15"> <button id = "submitButton" onclick= ${validateRequest()} style = "border-radius: 15px;"> Submit </button> <div style = "margin-bottom: 1cm;"></div>`;
+const metric =
+  '<input size = "15"> &nbsp; <input size = "15"> <button id = "submitButton" style = "border-radius: 15px;"> Submit </button> <div style = "margin-bottom: 1cm;"></div>';
 const dataviz = '<div id = "my_dataviz"></div>';
 
 /**
@@ -55,7 +51,13 @@ export class MlProvSidebar extends Widget {
 
   protected onBeforeShow(msg: Message): void {
     console.debug(`Opening ${TITLE} sidebar.`);
-    //new scatterGraph(this.node);
+    const element = document.getElementById(
+      'submitButton'
+    ) as HTMLButtonElement;
+      element?.addEventListener('click', function () {
+        const updateGraph = new scatterGraph();
+        return updateGraph;
+      });
   }
 
   protected onAfterHide(msg: Message): void {
