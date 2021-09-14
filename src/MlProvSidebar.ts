@@ -2,6 +2,7 @@ import { Widget } from '@lumino/widgets';
 import { offlineBoltIcon } from '@jupyterlab/ui-components';
 import { scatterGraph } from './D3BarChart';
 import { Message } from '@lumino/messaging';
+import { dataset1 } from './D3BarChart';
 
 const TITLE = 'ML Prov';
 const DESCRIPTION = 'HyperParameters:';
@@ -11,13 +12,8 @@ const values = '<li>h1 = 20</li><li>h2 = 10</li>';
 // const description2 = 'Performance Metrics:';
 // const fScore = '<li>f-score: 0.672</li>';
 const metric =
-  '<input size = "15"> &nbsp; <input size = "15"> <button id = "submitButton" style = "border-radius: 15px;"> Submit </button> <div style = "margin-bottom: 1cm;"></div>';
+  '<input size = "15" id = "hyper1"> &nbsp; <input size = "15" id = "hyper2"> <button id = "submitButton" style = "border-radius: 15px;"> Submit </button> <div style = "margin-bottom: 1cm;"></div>';
 const dataviz = '<div id = "my_dataviz"></div>';
-
-/**
- * Sidebar widget to interact with the extension.
- * See https://github.com/jupyterlab/extension-examples/tree/master/widgets
- */
 export class MlProvSidebar extends Widget {
   /**
    * Returns a new table of contents.
@@ -54,7 +50,10 @@ export class MlProvSidebar extends Widget {
     const element = document.getElementById(
       'submitButton'
     ) as HTMLButtonElement;
+    const hyperInput: number = +(<HTMLInputElement>(document.getElementById('hyper1'))).value;
+    const hyperInput2: number = +(<HTMLInputElement>(document.getElementById('hyper2'))).value;
     element?.addEventListener('click', () => {
+      dataset1.push([hyperInput,hyperInput2]);
       const updateGraph = new scatterGraph();
       return updateGraph;
     });
