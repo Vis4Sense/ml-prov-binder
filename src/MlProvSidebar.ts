@@ -50,13 +50,13 @@ export class MlProvSidebar extends Widget {
     const element = document.getElementById(
       'submitButton'
     ) as HTMLButtonElement;
-    const hyperInput: number = +(<HTMLInputElement>(
-      document.getElementById('hyper1')
-    )).value;
-    const hyperInput2: number = +(<HTMLInputElement>(
-      document.getElementById('hyper2')
-    )).value;
     element?.addEventListener('click', () => {
+      const hyperInput: number = +(<HTMLInputElement>(
+        document.getElementById('hyper1')
+      )).value;
+      const hyperInput2: number = +(<HTMLInputElement>(
+        document.getElementById('hyper2')
+      )).value;
       dataset1.push([hyperInput, hyperInput2]);
       const updateGraph = new scatterGraph();
       return updateGraph;
